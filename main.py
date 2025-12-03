@@ -59,8 +59,8 @@ def sendEmail(to, content):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.ehlo()
         server.starttls()
-        server.login('insha.khan.ece.2021@miet.ac.in', 'Ins#a@90')
-        server.sendmail('insha.khan.ece.2021@miet.ac.in', to, content)
+        server.login('E-mail', 'Password')
+        server.sendmail('E-mail', to, content)
         server.close()
         speak("Your email has been sent successfully.")
     except Exception as e:
@@ -93,9 +93,9 @@ if __name__ == '__main__':
             webbrowser.open("https://www.google.com")
 
         elif 'open linkedin' in query:
-            webbrowser.open("https://www.linkedin.com/in/insha-khan-b6120b278/")
+            webbrowser.open("https://www.linkedin.com")
         elif 'open leetcode' in query:
-            webbrowser.open("https://leetcode.com/u/Insha90/")
+            webbrowser.open("https://leetcode.com")
 
         elif 'tell me the time' in query:
             str_time = datetime.datetime.now().strftime("%H:%M:%S")
@@ -105,10 +105,11 @@ if __name__ == '__main__':
             try:
                 speak("What should I send?")
                 content = takecommand()
-                to = 'ak7618795@gmail.com'
+                to = 'E-mail'
                 sendEmail(to, content)
             except Exception as e:
                 print(e)
                 speak("Dear Insha, I couldn't send the email. Please address the error.")
+
 
 
